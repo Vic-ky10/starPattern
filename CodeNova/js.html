@@ -1,0 +1,74 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+<style>
+    .container{
+        font-size: large;
+        text-align: center;
+        font-family: Arial, Helvetica, sans-serif;
+
+    }
+    h1{
+        color: red;
+    }
+    h1:hover{
+        color: blue;
+    }
+    button{
+        background-color: aqua;
+        border-radius: 5px;
+        border: none;
+        padding: 5px 10px;
+
+    }
+    button:hover{
+        background-color: green;
+    }
+    button:active{
+        background: rgb(217, 217, 67);
+    }
+   .dice1{
+    margin: 25px;
+   }
+</style>
+</head>
+<body>
+    <div class="container" >
+        <h1>Dice Roller</h1>
+        <label for="class">Dice</label>
+        <input type="number" value ="1" min="1" id="class">
+        <button id="but1">Submit</button>
+        <button class="but2">reset</button>
+        <div class="dice1"></div>
+        <div class="dice2"></div>
+    </div>
+    <script >
+       const result = document.querySelector(".dice1");
+       const result2= document.querySelector(".dice2");
+        const numofDice = document.getElementById("class").value;
+        const values = [];
+        const Image = [];
+        document.getElementById('but1').addEventListener("click",rollDice)
+          document.querySelector(".but2").addEventListener('click',reset);
+          function reset(){
+           
+           result.textContent = "";
+           values.length =0;
+          }
+       function rollDice(){
+            
+        
+            const value = Math.floor(Math.random()*6)+1;
+        values.push(value)
+           
+        
+         result.textContent = `dice: ${values.join(",")};`
+       }
+
+      
+    </script>
+</body>
+</html>
